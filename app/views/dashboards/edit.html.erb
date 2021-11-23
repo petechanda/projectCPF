@@ -1,0 +1,82 @@
+<body>
+  <h1 class='title'>Plan แผนก <%= @dep %></h2>
+
+    <%= form_tag(edit_dashboard_path(@dep), method: 'get') do %>
+      <div class="pick-time">
+
+
+      <div class="section-select-container">
+        Date assign
+
+        <% if @status == true %>
+          <%= date_field("date_in","date_in" , :value => @date_in) %>
+        <% else %>
+          <%= date_field("date_in","date_in" , :value => @today) %>
+        <% end %>
+        <%= submit_tag 'select' , :name => "choose", :id =>"submit-btn", :style => "display:none" %>
+        to
+        <%= date_field("date_out","date_out", :value => @today,:min => @today) %>
+
+      </div>
+      <div class="controll-container">
+
+
+      <div class="time-plan-container">
+
+        Time <%= select_tag :time, options_for_select(@all_time, @default_select)  %>
+        OT <%= text_field :emp, :OT %>
+        <%= submit_tag "Submit" , :name=>'ass_button' , :class => "summit-plan"%>
+
+      </div>
+      <div class="delete-section">
+        <%= submit_tag "Delete" , :name=>'delete' %>
+      </div>
+      </div>
+
+      </div>
+
+
+  <div class="table-container">
+    <h4>แผนงานวันที่ : <%= @table_date %></h4>
+    <table>
+      <tr>
+        <th><%= check_box_tag :check_all %></th>
+        <th>ชื่อ-นามสกุล</th>
+        <% if @emp_plan != nil %>
+          <th><%= link_to "เวลาเข้างาน", :sort=>"time_in" %></th>
+        <% else %>
+          <th><%= link_to "เวลาเข้างาน", :sort_select=>"time_in" %></th>
+        <% end %>
+        <th>เวลาออกงาน</th>
+        <th>OT Plane</th>
+      </tr>
+      <% if @emp_plan != nil %>
+      <% @emp_plan.each do |plan| %>
+      <tr>
+        <td><%= check_box_tag "select_user[]", plan.user_id %></td>
+        <td><%= User.find(plan.user_id).name.to_s+" "+User.find(plan.user_id).surname.to_s %></td>
+        <td><%= plan.time_in.strftime('%H:%M') %></td>
+        <td><%= plan.time_out.strftime('%H:%M') %></td>
+        <td><%= plan.OT.to_s %></td>
+      </tr>
+      <% end %>
+      <% end %>
+      <% if @not_plan != nil %>
+      <% @not_plan.each do |not_plan_emp| %>
+      <tr>
+        <td><%= check_box_tag "select_user[]", not_plan_emp.id %></td>
+        <td><%= not_plan_emp.name.to_s+" "+not_plan_emp.surname.to_s %></td>
+        <td> - </td>
+        <td> - </td>
+        <td> - </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+
+</body>
+
+<%= javascript_pack_tag 'select_all', 'data-turbolinks-track':'reload' %>
+<%= javascript_pack_tag 'edit', 'data-turbolinks-track':'reload' %>

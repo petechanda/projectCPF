@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;500&display=swap');
+
+
+.pick-time {
+    width: 100%;
+    margin: 0 auto 0 auto;
+    padding: 0;
+
+}
+.section-select-container {
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: .1rem solid #bbbbbb ;
+    box-shadow: 5px 0 5px 0 #bbbbbb;
+    border-left: 0.25rem solid #48daff!important;
+    padding: 1em;
+}
+
+
+
+
+
+.time-plan-container {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 10% 40% 5% 10% 30%;
+    padding-bottom: 1em;
+    gap: 10px;
+    border-left: 0.25rem solid #ffdd48!important;
+    box-shadow: 5px 0 5px 0 #bbbbbb;
+    padding: 1.2em;
+}
+
+.section-select-btn {
+    background-color: #25c0e7;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    padding-bottom: .4em;
+    padding-top: .4em;
+
+}
+.summit-plan{
+    width: 90%;
+    background-color: #f3ca12;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+
+.delete-section{
+  margin-top: .8em;
+  background-color: white;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: .1rem solid #bbbbbb ;
+  box-shadow: 5px 0 5px 0 #bbbbbb;
+  border-left: 0.25rem solid  #F47174!important;
+  padding: 1em;
+
+  input[type="submit"]{
+        background-color:  #F47174;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1em;
+        border: none;
+        border-radius: 1em;
+        width: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+        padding-bottom: .4em;
+        padding-top: .4em;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+    .pick-time {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: 10px;
+        width: 90%;
+        margin: 0 auto 0 auto;
+    }
+
+    .time-plan-container{
+        height: 20%;
+    }
+
+
+    .controll-container{
+      display: grid;
+      grid-template-columns: auto;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      margin-right: auto;
+      margin-left: auto;
+      grid-gap: 1px;
+
+    }
+
+}
